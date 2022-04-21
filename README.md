@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+## Intro to React: [link](https://reactjs.org/tutorial/tutorial.html)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Prerequisites
+- familiarity with HTML and JavaScript
+- programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+- some features from ES6( arrow functions, classes, let, and const statements)
 
-## Available Scripts
+### Goal:
+- Lets you play tic-tac-toe,
+- Indicates when a player has won the game,
+- Stores a game’s history as a game progresses,
+- Allows players to review a game’s history and see previous versions of a game’s board.
 
-In the project directory, you can run:
+### Learning:
+	- React elements
+	- components
+	- props
+	- state
+	- handson
+	
 
-### `npm start`
+### What Is React?
+- React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
+It lets you compose complex UIs from small and isolated pieces of code called “components”.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<b><i>Note</i></b>:
+	In JavaScript classes, you need to always call super when defining the constructor of a subclass. 
+	All React component classes that have a constructor should start with a super(props) call.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<b><i>Note</i></b>:
+	Since the Square components no longer maintain state, the Square components receive 
+	values from the Board component and inform the Board component when they’re clicked. 
+	In React terms, the Square components are now controlled components. The Board has full 
+	control over them.
+	
+### Why Immutability Is Important?
+we suggested that you create a copy of the squares array using the slice() 
+method instead of modifying the existing array.
 
-### `npm test`
+```
+Data Change with Mutation
+	eg.
+		var player = {score: 1, name: 'Jeff'};
+		player.score = 2;
+		// Now player is {score: 2, name: 'Jeff'}
+		
+Data Change without Mutation
+	eg.
+		var player = {score: 1, name: 'Jeff'};
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+		var newPlayer = Object.assign({}, player, {score: 2});
+		// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
 
-### `npm run build`
+		// Or if you are using object spread syntax proposal, you can write:
+		// var newPlayer = {...player, score: 2};
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<b><i>Note:</i></b>
+	When we modified the Square to be a function component, we also changed 
+	onClick={() => this.props.onClick()} to a shorter 
+	onClick={props.onClick} (note the lack of parentheses on both sides).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<b><i>Note:</i></b>
+	Unlike the array push() method you might be more familiar with, 
+	the concat() method doesn’t mutate the original array, so we prefer it.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+		
+### Helpful link:
+- https://reactjs.org/docs/optimizing-performance.html#examples
+- https://reactjs.org/docs/state-and-lifecycle.html#state-updates-are-merged
